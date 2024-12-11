@@ -142,14 +142,22 @@ const DataTable = ({ newData, setNewData, setTotal, total }) => {
                           handleInputChange(rowIndex, field, e.target.value)
                         }
                         className={`px-4 py-1 h-9  hover:outline outline-1 hover:outline-blue-500 w-full text-white ${
-                          item[field] == "Completed"
-                            ? "bg-[#4ac86e]"
-                            : "bg-[#4786e7]"
-                        }`}
+                          item[field] == "Completed" && "bg-[#4ac86e]"
+                        } ${item[field] == "In Progress" && "bg-[#4786e7]"} ${
+                          item[field] == "" && "bg-slate-400"
+                        }
+                             
+                        `}
                       >
-                        <option value="">Select Status</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Completed">Completed</option>
+                        <option value="" className="bg-slate-400">
+                          Select Status
+                        </option>
+                        <option value="In Progress" className="bg-slate-400">
+                          In Progress
+                        </option>
+                        <option value="Completed" className="bg-slate-400">
+                          Completed
+                        </option>
                       </select>
                     ) : (
                       <>
