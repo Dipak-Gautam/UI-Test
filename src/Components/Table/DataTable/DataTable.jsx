@@ -74,7 +74,7 @@ const DataTable = ({ newData, setNewData, setTotal, total }) => {
 
   return (
     <div className="flex flex-col grow basis-0 overflow-hidden mt-6 text-gray-500">
-      <div className="overflow-x-auto overflow-y-auto grow max-h-[440px] flex">
+      <div className="overflow-x-auto overflow-y-auto grow max-h-[calc(100vh-320px)] flex">
         <table className="min-w-full border border-gray-300 divide-y divide-gray-300">
           <thead className="bg-gray-100 sticky top-0 text-gray-700">
             <tr>
