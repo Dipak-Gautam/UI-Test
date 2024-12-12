@@ -124,6 +124,44 @@ const DataTable = ({ newData, setNewData, setTotal, total }) => {
                   </p>
                 </th>
               ))}
+              <th>
+                <div className="relative min-w-40 max-w-40">
+                  <Dropdown
+                    show={isDropdownOpen}
+                    onClick={() => setIsDropdownOpen((prev) => !prev)}
+                    className="cursor-pointer absolute -top-5 left-0"
+                  >
+                    <Dropdown
+                      id="dropdown-button-dark-example1"
+                      className="px-4 py-2 text-left  min-w-40 max-w-40   text-gray-600"
+                    >
+                      + Add Column
+                    </Dropdown>
+                    {isDropdownOpen && (
+                      <Dropdown className="flex-row">
+                        <div className="border rounded-sm border-gray-500 ">
+                          {hiddenColumn.length == 0 ? (
+                            <div className="text-xs font-sans p-2">
+                              Therer are no column to add first hide coulum
+                            </div>
+                          ) : (
+                            <>
+                              {hiddenColumn.map((item, index) => (
+                                <p
+                                  className="hover:bg-cyan-50 text-center py-1 text-xs font-sans"
+                                  onClick={() => showColumn(item, index)}
+                                >
+                                  {TableHead[item]}
+                                </p>
+                              ))}
+                            </>
+                          )}
+                        </div>
+                      </Dropdown>
+                    )}
+                  </Dropdown>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -223,42 +261,6 @@ const DataTable = ({ newData, setNewData, setTotal, total }) => {
             ))}
           </tbody>
         </table>
-        <div>
-          <Dropdown
-            show={isDropdownOpen}
-            onClick={() => setIsDropdownOpen((prev) => !prev)}
-            className="cursor-pointer"
-          >
-            <Dropdown
-              id="dropdown-button-dark-example1"
-              className="px-4 py-2 text-left border border-gray-300 min-w-40 max-w-40 bg-gray-100 text-gray-600"
-            >
-              + Add Column
-            </Dropdown>
-            {isDropdownOpen && (
-              <Dropdown className="flex-row">
-                <div className="border rounded-sm border-gray-500 ">
-                  {hiddenColumn.length == 0 ? (
-                    <div className="text-xs font-sans p-2">
-                      Therer are no column to add first hide coulum
-                    </div>
-                  ) : (
-                    <>
-                      {hiddenColumn.map((item, index) => (
-                        <p
-                          className="hover:bg-cyan-50 text-center py-1 text-xs font-sans"
-                          onClick={() => showColumn(item, index)}
-                        >
-                          {TableHead[item]}
-                        </p>
-                      ))}
-                    </>
-                  )}
-                </div>
-              </Dropdown>
-            )}
-          </Dropdown>
-        </div>
       </div>
     </div>
   );

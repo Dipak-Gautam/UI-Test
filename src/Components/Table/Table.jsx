@@ -4,7 +4,7 @@ import DataTable from "./DataTable/DataTable";
 
 const Table = () => {
   const [newData, setNewData] = useState(false);
-  const [total, setTotal] = useState(2);
+  const [total, setTotal] = useState(7);
   return (
     <div className=" flex-col flex-1 px-6 pr-9">
       <NewClient setNewData={setNewData} total={total} />
